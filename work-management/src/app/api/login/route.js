@@ -41,10 +41,11 @@ export async function POST(request) {
 
     response.cookies.set("loginToken", token, {
       httpOnly: true,
+      secure: process.env.NODE_ENV === "production", // ✅ only true in prod
+      sameSite: "lax", // ✅ or "none" if frontend/backend on different domains
       path: "/",
-      // secure: true, // Uncomment in production
-      // sameSite: 'strict',
     });
+
     console.log("Set-Cookie header:", response.headers.get("Set-Cookie")); // ✅ shows cookie string
     return response;
   } catch (error) {
