@@ -4,7 +4,7 @@ import jwt from "jsonwebtoken";
 export const metadata = {
   title: "Add Task:work manager",
 };
-export default async function () {
+export default async function AddTaskPage() {
   return (
     <>
       <AddTask />
