@@ -30,7 +30,7 @@ export async function GET(request) {
 // Create task
 export async function POST(request) {
   try {
-    const { , description, user } = await request.json();
+    const { work, description, user } = await request.json();
 
     const newTask = new Task({
       work,
